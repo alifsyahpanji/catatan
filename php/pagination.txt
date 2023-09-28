@@ -1,0 +1,54 @@
+$batas = 20;
+$halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
+$halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
+
+$previous = $halaman - 1;
+$next = $halaman + 1;
+
+$sql_get_data = "SELECT id, telepon, nama_ortu, nama_anak, alamat, kehadiran FROM akun";
+$data = mysqli_query($conn, $sql_get_data);
+$jumlah_data = mysqli_num_rows($data);
+$total_halaman = ceil($jumlah_data / $batas);
+
+$data_member = mysqli_query($conn, "SELECT id, telepon, nama_ortu, nama_anak, alamat, kehadiran FROM akun LIMIT $halaman_awal, $batas");
+
+
+Disaable Prev:
+
+<?php if ($halaman == 1) {
+                        echo "disabled";
+                    } ?>
+
+Href Prev:
+
+<?php if ($halaman > 1) {
+                            echo "href=?halaman=" . $previous;
+                        } ?>
+
+Loop Page:
+
+ <?php
+                    for ($x = 1; $x <= $total_halaman; $x++) {
+                        ?>
+
+ <?php if ($x == $halaman) {
+                            echo "active";
+                        } ?>" href="?halaman=<?php echo $x ?>"><?php echo $x; ?>
+
+Disable Next:
+
+<?php if ($halaman == $total_halaman) {
+                        echo "disabled";
+                    } ?>">
+
+Href Next:
+<?php if ($halaman < $total_halaman) {
+                            echo "href=?halaman=" . $next;
+                        } ?>
+
+Looping Data:
+
+ if ($jumlah_data > 0) {
+                while ($row_akun = mysqli_fetch_assoc($data_member)) 
+
+

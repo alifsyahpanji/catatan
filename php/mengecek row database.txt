@@ -1,0 +1,5 @@
+if (mysqli_num_rows($run_query_telepon) > 0){
+echo "ada data";
+}else{
+echo "tidak ada data";
+}

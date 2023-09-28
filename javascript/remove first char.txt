@@ -1,0 +1,2 @@
+var text = '12345';
+var substring = text.slice(2);

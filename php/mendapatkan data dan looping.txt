@@ -1,0 +1,6 @@
+ if ($count_result > 0) {
+while ($row_result = mysqli_fetch_assoc($run_perkembangan)){
+echo $row_result["data"];
+}else{
+echo "tidak ada data";
+}

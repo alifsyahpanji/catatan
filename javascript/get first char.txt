@@ -1,0 +1,2 @@
+let firstDigit = String(replaceNomor)[0];
+let firstDigitNum = Number(firstDigit);
