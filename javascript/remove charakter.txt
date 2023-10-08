@@ -2,3 +2,5 @@ onkeyup="this.value=this.value.replace(/[\W]/g,'_');"
 
 onchange="this.value=this.value.replace(/[#[$\]\\@]/g,'_');"
 
+onchange="this.value=this.value.replace(/[\W]/g, '')"
+
